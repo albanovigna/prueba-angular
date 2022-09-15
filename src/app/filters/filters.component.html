@@ -1,0 +1,10 @@
+<select  name="data" id="" [(ngModel)]="filterParam" (change)="onFilterChange(filterParam)">
+    <!-- <option selected disabled>Status</option>
+    <option [value]=""Dead""  selected >Dead</option>
+    <option value="Alive" selected >Alive</option>
+    <option value="Unknown" selected >Unknown</option> -->
+    <option selected disabled value="">Status</option>
+    <option *ngFor="let o of options">
+        {{o.name}}
+     </option>
+</select>

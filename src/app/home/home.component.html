@@ -1,0 +1,16 @@
+<h1>Angular Router App</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
+  </ul>
+</nav>
+<app-filters (parametroAfiltrar)="reciboData($event)" ></app-filters>
+<div class="content">
+  <div class="container" *ngFor= "let character of characters.results | filterPipe: filterParam">
+    <h3>{{character.name}}</h3>
+    <h3>{{character.status}}</h3>
+  </div>
+</div>
+
