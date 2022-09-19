@@ -1,10 +1,28 @@
-<select  name="data" id="" [(ngModel)]="filterParam" (change)="onFilterChange(filterParam)">
-    <!-- <option selected disabled>Status</option>
-    <option [value]=""Dead""  selected >Dead</option>
-    <option value="Alive" selected >Alive</option>
-    <option value="Unknown" selected >Unknown</option> -->
+<!-- <select  name="data" id="" [(ngModel)]="filterParam" (change)="onFilterChange(filterParam)">
     <option selected disabled value="">Status</option>
-    <option *ngFor="let o of options">
+    <option *ngFor="let o of optionsStatus">
         {{o.name}}
      </option>
-</select>
+</select> -->
+<form novalidate [formGroup]="form">
+    <select class="form-control"
+              formControlName="status">
+              <option selected disabled value="">Status</option>
+              <option *ngFor="let o of optionsStatus" >
+                  {{o.name}}
+               </option>
+      </select>
+      <select class="form-control"
+              formControlName="gender">
+              <option selected disabled value="">Gender</option>
+              <option *ngFor="let o of optionsGender" >
+                  {{o.name}}
+               </option>
+      </select>
+     <input type="text" class="form-control" formControlName="specie" required="">
+      <button class="btn btn-primary"
+              (click)="search(form.value)">Search</button>
+</form>
+
+
+<!-- <input type="date" name="" id=""> -->

@@ -7,10 +7,14 @@
   </ul>
 </nav>
 <app-filters (parametroAfiltrar)="reciboData($event)" ></app-filters>
+<app-spinner></app-spinner>
 <div class="content">
   <div class="container" *ngFor= "let character of characters.results | filterPipe: filterParam">
     <h3>{{character.name}}</h3>
     <h3>{{character.status}}</h3>
+    <h3>{{character.gender}}</h3>
+    <h3>{{character.species}}</h3>
+    <div *ngIf="!character.status"><p>No se encontraron resultados</p></div>
   </div>
 </div>
 
