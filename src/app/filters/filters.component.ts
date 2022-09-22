@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-filters',
@@ -8,11 +8,13 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class FiltersComponent implements OnInit {
 
+  @Input() dataLiquidador:any = []
   @Output() parametroAfiltrar = new EventEmitter<any>()
-  @Output() groupFilters = new EventEmitter<any>();
+  @Output() dataFilter = new EventEmitter<any>();
   
   filterParam:any = []
 
+ 
   optionsStatus = [
     { name: "Alive", value: 1 },
     { name: "Dead", value: 2 },
@@ -29,24 +31,80 @@ export class FiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    console.log(this.dataLiquidador, "data en filters es")
   }
 
   buildForm(): void {
     this.form = this.fb.group({
-      status: new FormControl(''),
-      specie: new FormControl(''),
-      gender: new FormControl('')
+      // status: new FormControl('',[Validators.required]),
+      // specie: new FormControl('',[Validators.required]),
+      // gender: new FormControl('',[Validators.required])
+
+      // cuit: new FormControl('30708185864'),
+      // Tmp_os: new FormControl(''),
+      // estado: new FormControl(''),
+      // razon_social: new FormControl('PISTRELLI, HENRY MARTIN Y ASOCIADOS SRL'),
+      // comprobante_desde: new FormControl('2018-02-12'),
+      // comprobante_hasta: new FormControl('2022-08-20'),
+      // tramite_desde: new FormControl('2018-02-12'),
+      // tramite_hasta: new FormControl('2022-08-20'),
+
+      cuit: new FormControl(''),
+      Tmp_os: new FormControl(''),
+      estado: new FormControl(''),
+      razon_social: new FormControl(''),
+      comprobante_desde: new FormControl(''),
+      comprobante_hasta: new FormControl(''),
+      tramite_desde: new FormControl(''),
+      tramite_hasta: new FormControl(''),
+
     });
   }
-  onFilterChange(filterValue: any): void {
-    this.parametroAfiltrar.emit(filterValue)
-  }
+  
 
+ 
   search(filters: any): void {
-    // console.log(filters)
-    // Object.keys(filters).forEach(key => filters[key] === '' ? delete filters[key] : key);
-    // this.groupFilters.emit(filters);
+    // if(this.form.valid){
+    //   this.parametroAfiltrar.emit(filters)
+    //   console.log('valid')
+    // }else{
+    //   console.log('No valid')
+    // }
     this.parametroAfiltrar.emit(filters)
   }
+
+  setOSValue(value: any): void {
+    if (value===''){
+      this.form.patchValue({
+        Tmp_os:value,
+        estado:'',
+        cuit:'' ,
+        razon_social: '',
+        comprobante_desde: '',
+        comprobante_hasta: '',
+        tramite_desde: '',
+        tramite_hasta: '',
+      })
+    }else{
+      this.form.patchValue({
+        Tmp_os:value,
+        estado:'',
+      })
+    }
+    
+    this.search(this.form.value)
+    
+  }
+  setStatusValue(value: any): void {
+    this.form.patchValue({
+      estado:value,
+      Tmp_os:''
+    })
+    this.search(this.form.value)
+  }
+
+  // get status(){return this.form.get('status')}
+  // get specie(){return this.form.get('specie')}
+  // get gender(){return this.form.get('gender')}
 
 }

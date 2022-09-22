@@ -1,4 +1,4 @@
-<h1>Angular Router App</h1>
+<h1>Angular App</h1>
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
 <nav>
   <ul>
@@ -6,15 +6,35 @@
     <li><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a></li>
   </ul>
 </nav>
+<!-- <app-filters [dataLiquidador]="dataLiquidador" (dataFilter)="changeData($event)" (parametroAfiltrar)="reciboData($event)" ></app-filters> -->
 <app-filters (parametroAfiltrar)="reciboData($event)" ></app-filters>
 <app-spinner></app-spinner>
 <div class="content">
-  <div class="container" *ngFor= "let character of characters.results | filterPipe: filterParam">
+  <!-- <div class="container" *ngFor= "let character of characters.results | filterPipe: filterParam">
     <h3>{{character.name}}</h3>
     <h3>{{character.status}}</h3>
     <h3>{{character.gender}}</h3>
     <h3>{{character.species}}</h3>
     <div *ngIf="!character.status"><p>No se encontraron resultados</p></div>
+  </div> -->
+  <div class="titlesContainer">
+    <h3>Obra social</h3>
+    <h3>CUIT</h3>
+    <h3>Razon social</h3>
+    <h3>Fecha comprobante</h3>
+    <h3>Fecha tramite</h3>
+    <h3>Estado</h3>
+  </div>
+  <div class="container" *ngFor= "let persona of dataLiquidador | filterPipe:filterParam">
+    <div class="container" *ngIf="persona.cuit">
+      <h3>{{persona.Tmp_os}} |</h3>
+      <h3>{{persona.cuit}} |</h3>
+      <h3>{{persona.razon_social}} |</h3>
+      <h3>{{persona.periodo_comprobante}} |</h3>
+      <h3>{{persona.fecha_tramite}} |</h3>
+      <h3>{{persona.estado}}</h3>
+    </div>
+    <div *ngIf="!persona.cuit"><p>No se encontraron resultados</p></div>
   </div>
 </div>
 

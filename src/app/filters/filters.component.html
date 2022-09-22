@@ -4,24 +4,80 @@
         {{o.name}}
      </option>
 </select> -->
-<form novalidate [formGroup]="form">
-    <select class="form-control"
-              formControlName="status">
-              <option selected disabled value="">Status</option>
-              <option *ngFor="let o of optionsStatus" >
-                  {{o.name}}
-               </option>
-      </select>
-      <select class="form-control"
-              formControlName="gender">
-              <option selected disabled value="">Gender</option>
-              <option *ngFor="let o of optionsGender" >
-                  {{o.name}}
-               </option>
-      </select>
-     <input type="text" class="form-control" formControlName="specie" required="">
-      <button class="btn btn-primary"
-              (click)="search(form.value)">Search</button>
+<h2 class="title">Search data</h2>
+<form class="form" [formGroup]="form">
+    <!-- <div class="containerSelect">
+        <span>Status</span>
+        <select class="form-control" formControlName="status">
+            <option selected disabled value="">Status</option>
+            <option *ngFor="let o of optionsStatus">
+                {{o.name}}
+            </option>
+        </select>
+    </div>
+    <div class="alertDanger" *ngIf="form.touched && (!form.value.status || form.value.status.length === 0)">
+        <div class="statusError">Status is required</div>
+    </div>
+    <div class="containerSelect">
+        <span>Gender</span>
+        <select class="form-control" formControlName="gender">
+            <option selected disabled value="">Gender</option>
+            <option *ngFor="let o of optionsGender">
+                {{o.name}}
+            </option>
+        </select>
+    </div>
+    <div class="alertDanger" *ngIf="form.touched && (!form.value.gender || form.value.gender.length === 0)">
+        <div class="genderError">Gender is required</div>
+    </div>
+    <div class="containerSelect">
+        <span>Specie</span>
+        <input type="text" class="form-control" formControlName="specie" required="">
+    </div>
+    <div class="alertDanger" *ngIf="form.touched && (!form.value.specie || form.value.specie.length === 0)">
+        <div class="speciesError">Species is required</div>
+    </div> -->
+    <div>
+        <button (click)="setOSValue('')">Principal</button>
+        <button (click)="setOSValue('ASE')">ASE</button>
+        <button (click)="setOSValue('OSPM')">OSPM</button>
+        <button (click)="setOSValue('OSEN')">OSEN</button>
+        <button (click)="setStatusValue('pendiente')">Pendientes</button>
+        <button (click)="setStatusValue('modificar')">Modif. Autoriz</button>
+    <!-- <button (click)="setStatusValue('liquidado')">Judicializados</button> -->
+        <button (click)="setStatusValue('liquidado')">Liquidados</button>
+    </div>
+    <!-- <select class="form-control" formControlName="Tmp_os" *ngIf="this.form.controls['Tmp_os'].value">
+        <option selected disabled value="">Status</option>
+        <option *ngFor="let o of optionsStatus">
+            {{o.name}}
+        </option>
+    </select> -->
+    <div class="containerSelect">
+        <span>CUIT</span>
+        <input type="text" class="form-control" formControlName="cuit">
+    </div>
+    <div class="containerSelect">
+        <span>Razon Social</span>
+        <input type="text" class="form-control" formControlName="razon_social">
+    </div>
+    <div class="containerSelect">
+        <span>Periodo comprobante desde</span>
+        <input type="date" class="form-control" formControlName="comprobante_desde" >
+    </div>
+    <div class="containerSelect">
+        <span>Periodo comprobante hasta</span>
+        <input type="date" class="form-control" formControlName="comprobante_hasta" >
+    </div>
+    <div class="containerSelect">
+        <span>Fecha tramite desde</span>
+        <input type="date" class="form-control" formControlName="tramite_desde" >
+    </div>
+    <div class="containerSelect">
+        <span>Fecha tramite hasta</span>
+        <input type="date" class="form-control" formControlName="tramite_hasta">
+    </div>
+    <button class="btn btn-primary" (click)="search(form.value)">Search</button>
 </form>
 
 

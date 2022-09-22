@@ -8,3 +8,7 @@
     display: flex;
     gap: 0.5em;
 }
+.titlesContainer{
+    display: flex;
+    gap: 2rem;
+}

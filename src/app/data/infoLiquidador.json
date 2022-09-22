@@ -1,0 +1,74 @@
+[
+    {
+      "cuit":"30708185864",
+      "Tmp_os":"ASE",
+      "razon_social": "PISTRELLI, HENRY MARTIN Y ASOCIADOS SRL",
+      "estado":"liquidado",
+      "periodo_comprobante": 20190925,
+      "fecha_tramite": 20200320
+    },
+    {
+      "cuit":"30525733870",
+      "Tmp_os":"OSEN",
+      "razon_social": "PRICE WATERHOUSE & CO S.R.L.",
+      "estado":"liquidado",
+      "periodo_comprobante": 20200320,
+      "fecha_tramite": 20200110
+    },
+  {
+      "cuit":"30654118767",
+      "Tmp_os":"OSEN",
+      "razon_social": "HIBU ARGENTINA SOCIEDAD ANONIMA",
+      "estado":"pendiente",
+      "periodo_comprobante": 20190927,
+      "fecha_tramite": 20200113
+    },
+  {
+      "cuit":"30525733870",
+      "Tmp_os":"OSEN",
+      "razon_social": "PRICE WATERHOUSE & CO S.R.L.",
+      "estado":"pendiente",
+      "periodo_comprobante": 20200320,
+      "fecha_tramite": 20200110
+    },
+  {
+      "cuit":"30503364898",
+      "Tmp_os":"OSPM",
+      "razon_social": "SIEMENS S.A.",
+      "estado":"modificar",
+      "periodo_comprobante": 20190910,
+      "fecha_tramite": 20200114
+    },
+  {
+      "cuit":"30654424698",
+      "Tmp_os":"OSPM",
+      "razon_social": "PECOM SERVICIOS ENERGIA S.A.",
+      "estado":"modificar",
+      "periodo_comprobante": 20191230,
+      "fecha_tramite": 20200113
+    },
+  {
+      "cuit":"30525479591",
+      "Tmp_os":"ASE",
+      "razon_social": "SKF ARGENTINA S.A",
+      "estado":"liquidado",
+      "periodo_comprobante": 20200108,
+      "fecha_tramite": 20190906
+    },
+  {
+      "cuit":"30578079994",
+      "Tmp_os":"ASE",
+      "razon_social": "ACCION SOCIAL DE EMPRESARIOS A.S.E.",
+      "estado":"pendiente",
+      "periodo_comprobante": 20210311,
+      "fecha_tramite": 20191126
+    },
+  {
+      "cuit":"30578079994",
+      "Tmp_os":"ASE",
+      "razon_social": "ACCION SOCIAL DE EMPRESARIOS A.S.E.",
+      "estado":"liquidado",
+      "periodo_comprobante": 20210315,
+      "fecha_tramite": 20190916
+    }
+]
