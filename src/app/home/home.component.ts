@@ -16,29 +16,21 @@ export class HomeComponent implements OnInit {
   dataLiquidador:any = []
   public characters: any = [];
   ngOnInit(): void {
-    this.cargarCharacters();
+    // this.cargarCharacters();
     this.dataLiquidador = data
   }
-  // ngOnChanges(): void {
-  //   this.dataLiquidador =
-  // }
- 
+  
  
   public cargarCharacters() {
     this.RestService.get(
-      // `https://albano-rick-and-morty-api.herokuapp.com/characters`
       `http://localhost:3001/characters`
     ).subscribe((data) => {
       this.characters = data;
     });
   }
   reciboData(filterValue:any):void{
-    // console.log(filterValue,"console");
     this.filterParam = filterValue;
-    // console.log(filterValue, "filter value")
     console.log(this.filterParam)
   }
-  // changeData(filterValue:any):void{
-  //   this.dataLiquidador=filterValue
-  // }
+  
 }
